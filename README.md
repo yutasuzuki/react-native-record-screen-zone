@@ -13,7 +13,7 @@ npm install react-native-record-screen-zone react-native-record-screen react-nat
 ```js
 import { useRecordScreenZone } from 'react-native-record-screen-zone';
 
-const App = () => {
+export const App = () => {
   const { startRecording, stopRecording, RecordScreenZone } = useRecordScreenZone();
 
   const _handleOnStartRecording = () => {
@@ -44,8 +44,6 @@ const App = () => {
     </>
   )
 }
-
-const result = await RecordScreenZone.multiply(3, 7);
 ```
 
 ## License
