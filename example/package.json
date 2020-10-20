@@ -9,8 +9,12 @@
     "start": "react-native start"
   },
   "dependencies": {
-    "react": "16.11.0",
-    "react-native": "0.62.2"
+    "@types/react-native-video": "^5.0.3",
+    "react": "^16.14.0",
+    "react-native": "^0.63.3",
+    "react-native-ffmpeg": "^0.4.4",
+    "react-native-record-screen": "^0.3.2",
+    "react-native-video": "^5.1.0-alpha8"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

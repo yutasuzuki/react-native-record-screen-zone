@@ -5,22 +5,48 @@ react-native-record-screen-zone
 ## Installation
 
 ```sh
-npm install react-native-record-screen-zone
+npm install react-native-record-screen-zone react-native-record-screen react-native-ffmpeg
 ```
 
 ## Usage
 
 ```js
-import RecordScreenZone from "react-native-record-screen-zone";
+import { useRecordScreenZone } from 'react-native-record-screen-zone';
 
-// ...
+const App = () => {
+  const { startRecording, stopRecording, RecordScreenZone } = useRecordScreenZone();
+
+  const _handleOnStartRecording = () => {
+    startRecording()
+  }
+
+  const _handleOnStopRecording = async () => {
+    const res = await stopRecording()
+    if (res) {
+      console.log(res)
+    }
+  }
+
+  return (
+    <>
+      <Navbar />
+      <View>
+        <View>
+          <Text>Not recording area<Text>
+        </View>
+        <RecordScreenZone>
+          <View>
+            <Text>Recording area<Text>
+          </View>
+        </RecordScreenZone>
+      </View>
+      <Footer />
+    </>
+  )
+}
 
 const result = await RecordScreenZone.multiply(3, 7);
 ```
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 ## License
 

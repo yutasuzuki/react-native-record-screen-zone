@@ -37,6 +37,10 @@
 			</dict>
 		</dict>
 	</dict>
+  <key>NSCameraUsageDescription</key>
+  <string>Please allow use of camera</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Please allow use of microphone</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>
