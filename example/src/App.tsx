@@ -10,7 +10,7 @@ import {
   TouchableHighlight,
   Button,
 } from 'react-native';
-import Video from 'react-native-video';
+import VideoPlayer from 'react-native-video-player';
 import { useRecordScreenZone } from 'react-native-record-screen-zone';
 
 export default function App() {
@@ -45,6 +45,11 @@ export default function App() {
   const _handleOnCleanSandbox = useCallback(() => {
     cleanRecord();
   }, [cleanRecord]);
+
+  const _handleOnClose = useCallback(() => {
+    setRecording(false);
+    setUri('');
+  }, []);
 
   const btnStyle = useMemo(() => {
     return recording ? styles.btnActive : styles.btnDefault;
@@ -141,12 +146,18 @@ export default function App() {
         </TouchableHighlight>
       </View>
       {uri ? (
-        <View style={styles.preview}>
-          <Video
-            source={{
-              uri,
-            }}
-            style={styles.video}
+        <View style={styles.modal}>
+          <TouchableHighlight style={styles.close} onPress={_handleOnClose}>
+            <View style={styles.closeText}>
+              <Text>CLOSE</Text>
+            </View>
+          </TouchableHighlight>
+          <VideoPlayer
+            video={{ uri }}
+            videoWidth={Dimensions.get('window').width}
+            videoHeight={Dimensions.get('window').height}
+            thumbnail={{ uri: 'https://i.picsum.photos/id/866/1600/900.jpg' }}
+            autoplay
           />
         </View>
       ) : null}
@@ -236,4 +247,24 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
   },
+  modal: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+    backgroundColor: '#000',
+    zIndex: 2,
+  },
+  close: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    padding: 5,
+    backgroundColor: '#fff',
+    zIndex: 1,
+  },
+  closeText: {},
 });
