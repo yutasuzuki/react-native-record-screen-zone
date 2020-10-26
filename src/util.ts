@@ -18,7 +18,7 @@ export const createNewFilePath = (path: string) => {
   return parsePath.join('/');
 };
 
-export const calcLayout = (layout: LayoutRectangle) => {
+export const calcCropLayout = (layout: LayoutRectangle) => {
   let { width, height, x, y } = layout;
   const scale = Dimensions.get('window').scale;
   if (Platform.OS === 'android') {

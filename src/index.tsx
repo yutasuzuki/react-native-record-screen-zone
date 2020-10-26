@@ -10,7 +10,7 @@ import RecordScreen, {
   RecordingStartResponse,
   RecordingResponse,
 } from 'react-native-record-screen';
-import { createNewFilePath, calcLayout } from './util';
+import { createNewFilePath, calcCropLayout } from './util';
 
 interface Props extends ViewProps {}
 
@@ -53,7 +53,7 @@ export const useRecordScreenZone = () => {
       const res = await RecordScreen.stopRecording().catch(reject);
       if (res) {
         const newPath = createNewFilePath(res.result.outputURL);
-        const { width, height, x, y } = calcLayout(layout);
+        const { width, height, x, y } = calcCropLayout(layout);
         RNFFmpeg.executeWithArguments([
           '-i',
           res.result.outputURL,

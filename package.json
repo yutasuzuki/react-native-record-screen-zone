@@ -140,7 +140,7 @@
     ]
   },
   "dependencies": {
-    "react-native-ffmpeg": "^0.5.0",
+    "react-native-ffmpeg": "^0.4.4",
     "react-native-record-screen": "^0.3.2"
   }
 }

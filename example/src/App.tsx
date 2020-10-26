@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
   },
   close: {
     position: 'absolute',
-    top: 10,
+    top: 30,
     right: 10,
     padding: 5,
     backgroundColor: '#fff',

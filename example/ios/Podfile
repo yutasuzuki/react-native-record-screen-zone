@@ -4,8 +4,9 @@ require_relative '../node_modules/react-native/scripts/react_native_pods'
 platform :ios, '10.0'
 
 target 'RecordScreenZoneExample' do
-  config = use_native_modules!
   pod 'react-native-record-screen-zone', :path => '../..'
+  pod 'react-native-ffmpeg/min-gpl', :podspec => '../node_modules/react-native-ffmpeg/react-native-ffmpeg.podspec'
+  config = use_native_modules!
   use_react_native!(:path => config["reactNativePath"])
 
   # Enables Flipper.
